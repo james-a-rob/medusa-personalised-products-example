@@ -6,7 +6,7 @@
 ## Features
 
 - **AI Image Generation Integration**  
-  Seamlessly integrates with an AI-powered image generator to create custom designs for products.
+  Seamlessly integrates with an AI-powered image generator to create custom designs for products. Requires OpenAI key to me set in .env file.
 
 - **Custom Endpoints for Design Management**  
   Bespoke endpoints to create and showcase popular designs, offering flexibility and control over design presentation.
@@ -23,11 +23,11 @@
 
 ## Installation
 
-1. Clone the repository and change to the `digital-product` directory:
+1. Clone the repository and change to the `medusa-personalised-products-example` directory:
 
 ```bash
-git clone https://github.com/medusajs/examples.git
-cd examples/personalised-products
+git clone hhttps://github.com/james-a-rob/medusa-personalised-products-example.git
+cd medusa-personalised-products-example
 ```
 
 2\. Rename the `.env.template` file to `.env`.
