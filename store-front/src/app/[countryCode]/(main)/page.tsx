@@ -39,7 +39,7 @@ export default async function Home(props: {
     <>
       <Hero />
       <div className="px-4 py-4 flex justify-center">
-        <div className="flex items-center gap-2 w-[60%]">
+        <div className="flex items-center gap-2 w-[60%] mt-8">
           <PromptInput />
         </div>
       </div>
@@ -52,13 +52,7 @@ export default async function Home(props: {
           Popular Designs
         </Heading>
         <DesignCarousel designs={designs} />
-        <Heading
-          level="h2"
-          className="text-3xl leading-10 text-ui-fg-base"
-          data-testid="how-it-works"
-        >
-          How it Works
-        </Heading>
+
       </div>
     </>
   )

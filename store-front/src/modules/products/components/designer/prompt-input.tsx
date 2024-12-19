@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { Button } from "@medusajs/ui";
 
 const PromptInput = () => {
     const [promptVal, setPrompt] = useState("");
@@ -23,13 +24,13 @@ const PromptInput = () => {
                 placeholder="Describe your T-shirt design"
                 className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
             />
-            <button
+            <Button
                 type="button"
                 onClick={handleButtonClick}
                 className="px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 transition-colors"
             >
                 Get Started
-            </button>
+            </Button>
         </>
     );
 };

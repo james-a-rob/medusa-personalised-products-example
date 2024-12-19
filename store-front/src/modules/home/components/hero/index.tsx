@@ -9,7 +9,7 @@ const Hero = () => {
         alt="Generated Design"
         layout="fill"
         objectFit="cover"
-        style={{ objectPosition: 'center top' }}
+        style={{ objectPosition: 'center bottom' }}
       />
     </div>
   );

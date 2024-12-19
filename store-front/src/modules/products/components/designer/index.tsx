@@ -52,7 +52,7 @@ const Designer = ({ initialPrompt, onDesignChange, product }) => {
                         value={prompt}
                         onChange={(e) => setPrompt(e.target.value)}
                         placeholder="Enter a prompt for the design"
-                        className="flex-1 px-4 py-2 border border-gray-200 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 transition duration-300"
+                        className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
                     />
                     <Button
                         onClick={handleSubmit}

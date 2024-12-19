@@ -18,7 +18,11 @@ export async function GET(
 
   try {
     // Fetch all designs from the database (you may need to customize this based on your data storage)
-    const [designs] = await designModuleService.listAndCountDesigns();
+    const [designs] = await designModuleService.listAndCountDesigns({},
+      {
+        order: { created_at: 'DESC' },
+        take: 8,
+      });
     console.log('= = = = ', designs)
     // Return all designs to the frontend
     res.status(200).json({
