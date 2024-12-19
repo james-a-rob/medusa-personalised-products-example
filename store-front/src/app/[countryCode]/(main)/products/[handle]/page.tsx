@@ -34,8 +34,7 @@ export async function generateStaticParams() {
       .filter((param) => param.handle)
   } catch (error) {
     console.error(
-      `Failed to generate static paths for product pages: ${
-        error instanceof Error ? error.message : "Unknown error"
+      `Failed to generate static paths for product pages: ${error instanceof Error ? error.message : "Unknown error"
       }.`
     )
     return []
@@ -46,6 +45,10 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   const params = await props.params
   const { handle } = params
   const region = await getRegion(params.countryCode)
+
+  const prompt = props.searchParams.prompt;
+
+  console.log("prompt = = = ", prompt)
 
   if (!region) {
     notFound()
@@ -90,6 +93,7 @@ export default async function ProductPage(props: Props) {
 
   return (
     <ProductTemplate
+      prompt={props.searchParams.prompt || ""}
       product={pricedProduct}
       region={region}
       countryCode={params.countryCode}

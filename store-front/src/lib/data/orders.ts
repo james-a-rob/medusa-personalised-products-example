@@ -5,6 +5,33 @@ import medusaError from "@lib/util/medusa-error"
 import { getAuthHeaders, getCacheOptions } from "./cookies"
 import { HttpTypes } from "@medusajs/types"
 
+export const retrieveAllOrders = async (filters?: Record<string, any>) => {
+  const headers = {
+    ...(await getAuthHeaders()),
+  }
+
+  const next = {
+    ...(await getCacheOptions("orders")),
+  }
+
+  return sdk.client
+    .fetch<HttpTypes.StoreOrderListResponse>("/store/orders", {
+      method: "GET",
+      query: {
+        limit: 1000,
+        offset: 0,
+        order: "-created_at",
+        fields: "*items,+items.metadata,*items.variant,*items.product",
+        ...filters,
+      },
+      headers,
+      next,
+      cache: "force-cache",
+    })
+    .then(({ orders }) => orders)
+    .catch((err) => medusaError(err))
+}
+
 export const retrieveOrder = async (id: string) => {
   const headers = {
     ...(await getAuthHeaders()),

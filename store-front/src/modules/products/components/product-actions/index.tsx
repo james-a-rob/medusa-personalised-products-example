@@ -6,6 +6,7 @@ import { HttpTypes } from "@medusajs/types"
 import { Button } from "@medusajs/ui"
 import Divider from "@modules/common/components/divider"
 import OptionSelect from "@modules/products/components/product-actions/option-select"
+import Designer from '@modules/products/components/designer'
 import { isEqual } from "lodash"
 import { useParams } from "next/navigation"
 import { useEffect, useMemo, useRef, useState } from "react"
@@ -114,9 +115,15 @@ export default function ProductActions({
     setIsAdding(false)
   }
 
+  const handleDesignChange = () => {
+
+  }
+
   return (
     <>
       <div className="flex flex-col gap-y-2" ref={actionsRef}>
+        <Designer initialPrompt={prompt} onDesignChange={handleDesignChange} />
+
         <div>
           {(product.variants?.length ?? 0) > 1 && (
             <div className="flex flex-col gap-y-4">

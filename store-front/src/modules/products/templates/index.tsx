@@ -1,5 +1,7 @@
 import React, { Suspense } from "react"
 
+import Designer from "@modules/products/components/designer"
+
 import ImageGallery from "@modules/products/components/image-gallery"
 import ProductActions from "@modules/products/components/product-actions"
 import ProductOnboardingCta from "@modules/products/components/product-onboarding-cta"
@@ -14,10 +16,12 @@ import { HttpTypes } from "@medusajs/types"
 type ProductTemplateProps = {
   product: HttpTypes.StoreProduct
   region: HttpTypes.StoreRegion
-  countryCode: string
+  countryCode: string,
+  prompt: string
 }
 
 const ProductTemplate: React.FC<ProductTemplateProps> = ({
+  prompt,
   product,
   region,
   countryCode,
@@ -32,18 +36,17 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
         className="content-container flex flex-col small:flex-row small:items-start py-6 relative"
         data-testid="product-container"
       >
-        <input type="text" />
-        here
-
-        <div className="flex flex-col small:sticky small:top-48 small:py-0 small:max-w-[300px] w-full py-8 gap-y-6">
+        {/* <div className="flex flex-col small:sticky small:top-48 small:py-0 small:max-w-[300px] w-full py-8 gap-y-6">
           <ProductInfo product={product} />
           <ProductTabs product={product} />
-        </div>
+        </div> */}
         <div className="block w-full relative">
-          <ImageGallery images={product?.images || []} />
+          <Designer initialPrompt={prompt} />
+
+          {/* <ImageGallery images={product?.images || []} /> */}
         </div>
         <div className="flex flex-col small:sticky small:top-48 small:py-0 small:max-w-[300px] w-full py-8 gap-y-12">
-          <ProductOnboardingCta />
+          {/* <ProductOnboardingCta />
           <Suspense
             fallback={
               <ProductActions
@@ -54,16 +57,16 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
             }
           >
             <ProductActionsWrapper id={product.id} region={region} />
-          </Suspense>
+          </Suspense> */}
         </div>
       </div>
       <div
         className="content-container my-16 small:my-32"
         data-testid="related-products-container"
       >
-        <Suspense fallback={<SkeletonRelatedProducts />}>
+        {/* <Suspense fallback={<SkeletonRelatedProducts />}>
           <RelatedProducts product={product} countryCode={countryCode} />
-        </Suspense>
+        </Suspense> */}
       </div>
     </>
   )
