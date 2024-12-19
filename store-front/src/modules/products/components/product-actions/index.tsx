@@ -119,17 +119,23 @@ export default function ProductActions({
 
   }
 
+  console.log("===== product in actions", product.variants?.length)
+  console.log("===== product in actions", product.options)
+
+
   return (
     <>
       <div className="flex flex-col gap-y-2" ref={actionsRef}>
-        <Designer initialPrompt={prompt} onDesignChange={handleDesignChange} />
+        {/* <Designer initialPrompt={prompt} onDesignChange={handleDesignChange} /> */}
 
         <div>
           {(product.variants?.length ?? 0) > 1 && (
             <div className="flex flex-col gap-y-4">
+
               {(product.options || []).map((option) => {
                 return (
                   <div key={option.id}>
+
                     <OptionSelect
                       option={option}
                       current={options[option.id]}

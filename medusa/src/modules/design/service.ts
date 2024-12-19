@@ -23,7 +23,7 @@ export default class DesignModuleService extends MedusaService({
 
 
             const imageUrl = response.data[0].url;
-            console.log('imageUrl', imageUrl);
+
             if (imageUrl) {
                 const imageBuffer = await fetch(imageUrl)
                     .then((res) => res.buffer())

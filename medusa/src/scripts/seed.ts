@@ -100,7 +100,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
     input: {
       locations: [
         {
-          name: "European Warehouse",
+          name: "3rd Party Print Service",
           address: {
             city: "Copenhagen",
             country_code: "DK",

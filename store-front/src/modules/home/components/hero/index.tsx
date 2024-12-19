@@ -9,6 +9,7 @@ const Hero = () => {
         alt="Generated Design"
         layout="fill"
         objectFit="cover"
+        style={{ objectPosition: 'center top' }}
       />
     </div>
   );

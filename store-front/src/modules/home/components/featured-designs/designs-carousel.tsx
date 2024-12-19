@@ -19,7 +19,7 @@ export default function ProductCarousel({ designs }: { designs: Design[] }) {
                         <div className="bg-white rounded-3xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl">
                             <div className="aspect-square relative mb-4">
                                 <Image
-                                    src={`http://localhost:9000/static/${design.imageLocation}`}
+                                    src={`${design.imageLocation}`}
                                     alt={design.imageLocation}
                                     fill
                                     className="object-cover rounded-2xl"

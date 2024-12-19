@@ -6,11 +6,35 @@ loadEnv(process.env.NODE_ENV || 'development', process.cwd())
 
 
 module.exports = defineConfig({
-  modules: {
-    [DESIGN_MODULE]: {
+  modules: [
+    {
       resolve: "./src/modules/design",
     },
-  },
+    {
+      resolve: "@medusajs/medusa/fulfillment",
+      options: {
+        providers: [
+          // default provider
+          {
+            resolve: "@medusajs/medusa/fulfillment-manual",
+            id: "manual",
+          },
+          {
+            resolve: "./src/modules/print",
+            id: "print",
+            options: {
+              // provider options...
+            },
+          },
+        ],
+      },
+    },
+  ],
+  // modules: {
+  //   [DESIGN_MODULE]: {
+  //     resolve: "./src/modules/design",
+  //   },
+  // },
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
     http: {

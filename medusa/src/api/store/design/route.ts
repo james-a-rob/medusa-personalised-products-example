@@ -47,35 +47,36 @@ export async function POST(
 
   // validate prompt a bit
   // call openAI
-  // const designBuffer = await designModuleService.generateDesign(prompt);
-  // if (!designBuffer) {
-  //   console.log('failed to generate image');
-  //   res.sendStatus(500)
-  //   return;
-  // }
+  const designBuffer = await designModuleService.generateDesign(prompt);
+  if (!designBuffer) {
+    console.log('failed to generate image');
+    res.sendStatus(500)
+    return;
+  }
 
-  // // store image
-  // const { result } = await uploadFilesWorkflow(req.scope).run({
-  //   input: {
-  //     files: [{
-  //       filename: 'ai-design.png',
-  //       mimeType: 'png',
-  //       content: designBuffer.toString("binary"),
-  //       access,
-  //     }
-  //     ],
-  //   },
-  // });
+  // store image
+  const { result } = await uploadFilesWorkflow(req.scope).run({
+    input: {
+      files: [{
+        filename: 'ai-design.png',
+        mimeType: 'png',
+        content: designBuffer.toString("binary"),
+        access,
+      }
+      ],
+    },
+  });
 
-
+  console.log("result", result)
   // store design to designs table
   await designModuleService.createDesigns({
-    imageLocation: '1734020344814-ai-design.png',
+    imageLocation: result[0].url,
     prompt
   })
   // return design to frontend
+
   res.status(201).json({
-    imageLocation: '1734020344814-ai-design.png',
+    imageLocation: result[0].url,
     prompt
   });
 }
