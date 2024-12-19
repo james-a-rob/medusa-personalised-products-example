@@ -26,28 +26,28 @@
 1. Clone the repository and change to the `medusa-personalised-products-example` directory:
 
 ```bash
-git clone hhttps://github.com/james-a-rob/medusa-personalised-products-example.git
+git clone https://github.com/james-a-rob/medusa-personalised-products-example.git
 cd medusa-personalised-products-example
 ```
 
-2\. Rename the `.env.template` file to `.env`.
+2\. Rename the `.env.template` file to `.env` in medusa dir.
 
 3\. If necessary, change the PostgreSQL username, password, and host in the `DATABASE_URL` environment variable.
 
-4\. Install dependencies:
+4\. Install dependencies in both medusa and storefront dirs:
 
 ```bash
 yarn # or npm install
 ```
 
-5\. Setup and seed the database:
+5\. Setup and seed the database in medusa dir:
 
 ```bash
 npx medusa db:setup
 yarn seed # or npm run seed
 ```
 
-6\. Start the Medusa application:
+6\. Start  both medusa and storefront apps:
 
 ```bash
 yarn dev # or npm run dev
